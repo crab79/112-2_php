@@ -33,7 +33,7 @@ if (isset($_SESSION["check"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>論文評論網頁</title>
+    <title>論文投稿網頁</title>
 </head>
 
 <body>
