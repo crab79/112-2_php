@@ -1,0 +1,282 @@
+$main-theme-color: #ff2f2f;
+
+@mixin intro-section($link) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: $link;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.5); // 設置背景混和模式為相乘模式
+    background-blend-mode: multiply;
+}
+
+@mixin h2{
+    background: linear-gradient(to bottom, $main-theme-color, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    font-size: 3rem;
+    font-weight: 800;
+    width: calc(30%);
+    height: fit-content;
+    text-align: center;
+    padding: 16px;
+}
+
+@mixin text{
+    @include noto-sans-tc();
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    width: calc(30%);
+    height: fit-content;
+    text-align: center;
+    padding: 16px;
+}
+
+@mixin noto-sans-tc($weight: 500) {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: $weight;
+    font-style: normal;
+}
+@mixin textGradient($color: $main-theme-color) {
+    background: linear-gradient(to right, $color, #3b3b3b);
+    // Clip the background to the text
+    -webkit-background-clip: text;
+    background-clip: text;
+    // Set the fill color to transparent to allow the background gradient to show through
+    color: transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 1px 5px 5px;
+    position: fixed;
+    top: 0;
+
+    #title {
+        @include textGradient();
+        font-size: 2.5rem;
+        font-weight: 800;
+        width: 30%;
+        height: fit-content;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    .nav {
+        display: flex;
+        margin-right: 1rem;
+        gap: 1rem;
+        align-self: center;
+        a {
+            @include noto-sans-tc();
+            font-size: 1.5rem;
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            color: #3b3b3b;
+            cursor: pointer;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            width: fit-content;
+            align-self: center;
+        }
+
+        a:disabled {
+            pointer-events: none;
+        }
+
+        a:hover {
+            color: #fff;
+            background-color: #1a1a1a;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            border-radius: 15px;
+        }
+
+        a:active {
+            box-shadow: none;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    .cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(https://scontent.fkhh1-2.fna.fbcdn.net/v/t31.18172-8/886019_1009360375781801_1933884259430783956_o.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5RzzL3nAvqsQ7kNvgELHXb_&_nc_ht=scontent.fkhh1-2.fna&oh=00_AYAP09T4wu9BAZMYiJBlBwz0o3bfsErhyVR40Ree6eAvxw&oe=66670709);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-color: rgba(0, 0, 0, 0.5); // 設置背景混和模式為相乘模式
+        background-blend-mode: multiply;
+        #title {
+            background: linear-gradient(to bottom, $main-theme-color, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            font-size: 5rem;
+            font-weight: 800;
+            width: fit-content;
+            height: fit-content;
+            text-align: center;
+            padding: 16px;
+        }
+    }
+    .about{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(https://pamalove.com/wp-content/uploads/20180214143037_44.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-color: rgba(0, 0, 0, 0.5); // 設置背景混和模式為相乘模式
+        background-blend-mode: multiply;
+
+        h2{
+            @include h2();  
+        }
+
+        p{
+            @include text();
+        }
+    }
+    .peanut{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(https://www.taiwanbest100.com.tw/uploads/photo/image/1021/fcb6074435.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-color: rgba(0, 0, 0, 0.5); // 設置背景混和模式為相乘模式
+        background-blend-mode: multiply;
+
+        h2{
+            @include h2();  
+        }
+
+        p{
+            @include text();
+        }
+
+    }
+    .crispy{
+        @include intro-section(url(https://lh3.ggpht.com/p/AF1QipNYLhV0q9BQPelBopIv7y4w2bF2mdjULf2arJwc=s512));
+        h2{
+            @include h2();  
+        }
+
+        p{
+            @include text();
+        }
+    }
+    .otherCandy{
+        @include intro-section(url(https://food.youke.tw/uploads/20230825/e84ba676b29f17210e14661394fe8789.jpg));
+        h2{
+            @include h2();  
+        }
+
+        p{
+            @include text();
+        }
+    }
+}
+.footer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 25vh;
+    #title{
+        @include textGradient($main-theme-color);
+        font-size: 2.5rem;
+        font-weight: 800;
+        width: 30%;
+        height: fit-content;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+    .info{
+        font-size: 1.2rem;
+        font-weight: 500;
+        width: 30%;
+        height: fit-content;
+        text-align: left;
+        text-wrap: nowrap;
+
+        @include noto-sans-tc();
+        color: #000000;
+        a{
+
+        }
+    }
+     a#footer-link {
+        margin-left: 20%;
+        @include noto-sans-tc();
+        font-size: 1.2rem;
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        color: #3b3b3b;
+        cursor: pointer;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        width: fit-content;
+        align-self: center;
+    }
+
+   a:disabled#footer-link {
+        pointer-events: none;
+    }
+
+    a:hover#footer-link {
+        color: #fff;
+        background-color: #1a1a1a;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        border-radius: 15px;
+    }
+
+    a:active#footer-link {
+        box-shadow: none;
+    }
+}

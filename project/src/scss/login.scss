@@ -1,0 +1,159 @@
+$main-theme-color: #ff2f2f;
+
+@mixin noto-sans-tc($weight: 500) {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: $weight;
+    font-style: normal;
+}
+@mixin textGradient($color: $main-theme-color) {
+    background: linear-gradient(to right, $color, #3b3b3b);
+    // Clip the background to the text
+    -webkit-background-clip: text;
+    background-clip: text;
+    // Set the fill color to transparent to allow the background gradient to show through
+    color: transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 1px 5px 5px;
+    position: fixed;
+    top: 0;
+
+    #title {
+        @include textGradient();
+        font-size: 2.5rem;
+        font-weight: 800;
+        width: 30%;
+        height: fit-content;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+
+    .nav {
+        display: flex;
+        margin-right: 1rem;
+        gap: 1rem;
+        align-self: center;
+        a {
+            @include noto-sans-tc();
+            font-size: 1.5rem;
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            color: #3b3b3b;
+            cursor: pointer;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            width: fit-content;
+            align-self: center;
+        }
+
+        a:disabled {
+            pointer-events: none;
+        }
+
+        a:hover {
+            color: #fff;
+            background-color: #1a1a1a;
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            border-radius: 15px;
+        }
+
+        a:active {
+            box-shadow: none;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 65vh;
+}
+
+.footer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 25vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px -5px 5px;
+    #title{
+        @include textGradient($main-theme-color);
+        font-size: 2.5rem;
+        font-weight: 800;
+        width: 30%;
+        height: fit-content;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+    .info{
+        font-size: 1.2rem;
+        font-weight: 500;
+        width: 30%;
+        height: fit-content;
+        text-align: left;
+        text-wrap: nowrap;
+
+        @include noto-sans-tc();
+        color: #000000;
+        a{
+
+        }
+    }
+     a#footer-link {
+        margin-left: 20%;
+        @include noto-sans-tc();
+        font-size: 1.2rem;
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        color: #3b3b3b;
+        cursor: pointer;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        width: fit-content;
+        align-self: center;
+    }
+
+   a:disabled#footer-link {
+        pointer-events: none;
+    }
+
+    a:hover#footer-link {
+        color: #fff;
+        background-color: #1a1a1a;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        border-radius: 15px;
+    }
+
+    a:active#footer-link {
+        box-shadow: none;
+    }
+}
