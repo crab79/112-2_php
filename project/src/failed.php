@@ -1,3 +1,6 @@
+<?php
+header("Refresh:1.5;url=login.html");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <script defer="defer" src="login.bundle.js"></script>
 </head>
 <body>
-    <div class="header">
-        <h2 id="title"><a href="index.html">世芳軒</h2>
+<div class="header">
+        <h2 id="title">世芳軒</h2>
         <div class="nav">
             <a href="products.html">查看所有商品</a>
             <a href="login.html">登入</a>    
@@ -19,23 +23,7 @@
     </div>
     <div class="content">  
         <form action="check.php" method="post">
-            <h2>登入</h2>
-            <div class="login">
-                <div class="account">
-                    <label for="account">帳號:</label>
-                    <input type="text" id="account" name="userid">    
-                </div>
-                </br>
-                <div class="pwd">
-                    <label for="pwd">密碼:</label>
-                    <input type="password" name="password" id="pwd">        
-                </div>
-            </div>
-            <div class="enrollAndForget">
-                <a href="enroll.html">註冊帳號</a>
-                <a href="forgetPwd.html">忘記密碼</a>
-            </div>
-            <input type="submit" value="登入" id="submit">
+            <?php echo "<h2 style='color: red;'>登入失敗！</h2>";?>
         </form>
     </div>
     <div class="footer">
